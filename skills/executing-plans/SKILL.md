@@ -1,5 +1,5 @@
 ---
-name: tdd-driven-development
+name: executing-plans
 description: Use when executing implementation plans with independent tasks in the current session
 ---
 
@@ -17,12 +17,12 @@ Execute a plan by dispatching a fresh subagent per task, each following the full
 digraph when_to_use {
     "Have implementation plan?" [shape=diamond];
     "Tasks mostly independent?" [shape=diamond];
-    "tdd-driven-development" [shape=box];
+    "executing-plans" [shape=box];
     "Manual execution or brainstorm first" [shape=box];
 
     "Have implementation plan?" -> "Tasks mostly independent?" [label="yes"];
     "Have implementation plan?" -> "Manual execution or brainstorm first" [label="no"];
-    "Tasks mostly independent?" -> "tdd-driven-development" [label="yes"];
+    "Tasks mostly independent?" -> "executing-plans" [label="yes"];
     "Tasks mostly independent?" -> "Manual execution or brainstorm first" [label="no - tightly coupled"];
 }
 ```

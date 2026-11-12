@@ -11,7 +11,7 @@ A self-contained replacement for the superpowers plugin for use in environments 
 | `test-driven-development` | RED-GREEN-REFACTOR mechanics |
 | `brainstorming` | Design before code, with testability gate |
 | `writing-plans` | Implementation plans with task dependency declarations |
-| `tdd-driven-development` | Sequential execution — fresh subagent per task, TDD cycle enforced, two-stage review |
+| `executing-plans` | Sequential execution — fresh subagent per task, TDD cycle enforced, two-stage review |
 | `dispatching-parallel-agents` | Parallel investigation of multiple independent failures |
 | `finishing-a-development-branch` | Verify → 4 options → ship |
 | `using-git-worktrees` | Isolated workspace + pre-commit hook |
