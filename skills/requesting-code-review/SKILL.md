@@ -81,9 +81,9 @@ You: [Fix progress indicators]
 - Catch issues before they compound
 - Fix before moving to next task
 
-**tdd-parallel-execution (batch):**
-- Review after each batch (3 tasks)
-- Get feedback, apply, continue
+**Ad-Hoc (mid-feature):**
+- Review before merge
+- Review when stuck
 
 **Ad-Hoc Development:**
 - Review before merge
