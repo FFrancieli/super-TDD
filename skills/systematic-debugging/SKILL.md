@@ -292,6 +292,7 @@ These techniques are part of systematic debugging and available in this director
 **Related skills:**
 - **test-driven-development** - For creating failing test case (Phase 4, Step 1)
 - **verification-before-completion** - Verify fix worked before claiming success
+- **dispatching-parallel-agents** - When multiple independent failures exist across different subsystems, dispatch one investigation agent per domain before starting Phase 1
 
 ## Real-World Impact
 

@@ -27,9 +27,10 @@ Before any other response, load `tdd-enforcement`. This is not optional.
 | `brainstorming` | Before any creative work: new features, components, behavior changes, modifications |
 | `writing-plans` | After brainstorming approves a design, before touching code |
 | `test-driven-development` | Before writing any implementation code — mechanics of RED-GREEN-REFACTOR |
-| `tdd-parallel-execution` | When executing a written plan with parallel-safe task declarations |
+| `tdd-driven-development` | When executing a written plan — fresh subagent per task with TDD cycle and two-stage review |
 | `using-git-worktrees` | Before starting implementation — creates isolated workspace and installs git hooks |
 | `systematic-debugging` | When encountering any bug, test failure, or unexpected behavior |
+| `dispatching-parallel-agents` | When multiple independent failures exist across different subsystems |
 | `verification-before-completion` | Before claiming work is complete, fixed, or passing |
 | `requesting-code-review` | After completing tasks or features, before merging |
 | `receiving-code-review` | When receiving code review feedback, before implementing suggestions |
@@ -38,7 +39,7 @@ Before any other response, load `tdd-enforcement`. This is not optional.
 ## Skill Priority
 
 1. **Process skills first** — `brainstorming`, `systematic-debugging` determine HOW to approach the task
-2. **Implementation skills second** — `tdd-parallel-execution`, `using-git-worktrees` guide execution
+2. **Implementation skills second** — `tdd-driven-development`, `using-git-worktrees` guide execution
 
 "Let's build X" → brainstorming first, then implementation skills.
 "Fix this bug" → systematic-debugging first, then test-driven-development for the fix.
