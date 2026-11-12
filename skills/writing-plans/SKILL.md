@@ -46,13 +46,12 @@ Assume they are a skilled developer, but know almost nothing about the toolset o
 
 ## Task Structure
 
-Each task must include a parallel-safe declaration and complete content — no placeholders.
+Each task must have complete content — no placeholders. If a task depends on another, state it explicitly.
 
 ```markdown
 ### Task N: [Component Name]
 
-**parallel-safe:** yes/no
-**reason:** [why this task is or isn't safe to run concurrently — which files it touches]
+**depends-on:** Task M (or "none")
 
 **Files:**
 - Create: `exact/path/to/file`
@@ -97,17 +96,13 @@ git commit -m "feat: add specific behavior"
 | `Cargo.toml` | `cargo test` |
 | `Gemfile` | `bundle exec rspec` |
 
-## parallel-safe Declaration Rules
+## Task Dependencies
 
-Mark `parallel-safe: yes` if and only if:
-- Task creates/modifies files no other concurrent task touches
-- Task does not depend on output of another concurrent task
-- Test file is separate from all other concurrent tasks
+Tasks execute sequentially. Use `depends-on` to make ordering explicit:
+- `depends-on: none` — can run at any point
+- `depends-on: Task 2` — must run after Task 2 completes
 
-Mark `parallel-safe: no` if:
-- Task touches a shared file (config, shared utility, index)
-- Task must run after another specific task
-- Task modifies files another task also modifies
+Order tasks in the plan from least to most dependent. `executing-plans` follows this order.
 
 ## No Placeholders
 
