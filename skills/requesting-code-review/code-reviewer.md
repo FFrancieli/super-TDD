@@ -48,11 +48,27 @@ git diff {BASE_SHA}..{HEAD_SHA}
 - Integration tests where needed?
 - All tests passing?
 
-**Requirements:**
-- All plan requirements met?
-- Implementation matches spec?
-- No scope creep?
-- Breaking changes documented?
+**Requirements — Spec Coverage:**
+
+Step 1: Load the design spec
+  Read: `specs/YYYY-MM-DD-<topic>-design.md`
+  Extract every stated requirement, behavior, and constraint.
+  List them explicitly before proceeding — do not hold them in memory.
+
+Step 2: Map each requirement to implementation and test
+  For each requirement:
+  - Find the code in the diff that implements it (file:line)
+  - Find the test that verifies it (file:test name)
+  - If either is missing: flag it
+
+Step 3: Produce a coverage table
+  | Requirement | Implemented | Tested | Gap |
+  |---|---|---|---|
+  | [from spec] | file:line or ✗ | test name or ✗ | description |
+
+Flag unimplemented requirements as Critical.
+Flag untested requirements as Important.
+Flag scope creep (implemented but not in spec) as Minor.
 
 **Production Readiness:**
 - Migration strategy (if schema changes)?
@@ -64,6 +80,10 @@ git diff {BASE_SHA}..{HEAD_SHA}
 
 ### Strengths
 [What's well done? Be specific.]
+
+### Spec Coverage
+[Coverage table from Requirements Step 3]
+[Summary: N/M requirements fully covered, X gaps]
 
 ### Issues
 
