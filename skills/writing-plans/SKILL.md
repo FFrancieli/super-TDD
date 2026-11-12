@@ -13,7 +13,7 @@ Write implementation plans for an engineer who has not seen this codebase or thi
 
 **Announce at start:** "I'm using the writing-plans skill to create the implementation plan."
 
-**Context:** If working in an isolated worktree, it should have been created via the `using-git-worktrees` skill at execution time.
+**Context:** If working in an isolated worktree, create it via `using-git-worktrees` before starting.
 
 **Save plans to:** `specs/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
