@@ -248,4 +248,4 @@ Ready to implement auth feature
 
 **Pairs with:**
 - **finishing-a-development-branch** - REQUIRED for cleanup after work complete
-- **tdd-parallel-execution** - Work happens in this worktree
+- **tdd-driven-development** - Work happens in this worktree
