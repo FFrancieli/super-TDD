@@ -30,6 +30,7 @@ Then announce "Using [skill] to [purpose]" and follow the skill exactly. If it h
 | Skill | When to invoke |
 |---|---|
 | `tdd-enforcement` | Loaded at session start — always ambient |
+| `spike` | Exploratory work, one-off scripts, throwaway experiments — TDD and full workflow explicitly skipped |
 | `brainstorming` | Before any creative work: new features, components, behavior changes, modifications |
 | `writing-plans` | After brainstorming approves a design, before touching code |
 | `test-driven-development` | Before writing any implementation code — mechanics of RED-GREEN-REFACTOR |
