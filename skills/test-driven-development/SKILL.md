@@ -11,6 +11,8 @@ Write the test first. Watch it fail. Write minimal code to pass.
 
 **Core principle:** If you didn't watch the test fail, you don't know if it tests the right thing.
 
+**Violating the letter of the rules is violating the spirit of the rules.**
+
 **REQUIRED: `tdd-enforcement` is always loaded. The iron law, rationalization counters, and red flags live there. This skill covers mechanics only.**
 
 ## When to Use
@@ -56,6 +58,36 @@ digraph tdd_cycle {
 
 Write one minimal test showing what should happen.
 
+<Good>
+```typescript
+test('retries failed operations 3 times', async () => {
+  let attempts = 0;
+  const operation = () => {
+    attempts++;
+    if (attempts < 3) throw new Error('fail');
+    return 'success';
+  };
+  const result = await retryOperation(operation);
+  expect(result).toBe('success');
+  expect(attempts).toBe(3);
+});
+```
+Clear name, tests real behavior, one thing
+</Good>
+
+<Bad>
+```typescript
+test('retry works', async () => {
+  const mock = jest.fn()
+    .mockRejectedValueOnce(new Error())
+    .mockResolvedValueOnce('success');
+  await retryOperation(mock);
+  expect(mock).toHaveBeenCalledTimes(2);
+});
+```
+Vague name, tests mock not code
+</Bad>
+
 **Requirements:**
 - One behavior
 - Clear name
@@ -80,7 +112,31 @@ Confirm:
 
 ### GREEN — Minimal Code
 
-Write simplest code to pass the test. Don't add features, refactor other code, or "improve" beyond the test.
+Write simplest code to pass the test.
+
+<Good>
+```typescript
+async function retryOperation<T>(fn: () => Promise<T>): Promise<T> {
+  for (let i = 0; i < 3; i++) {
+    try { return await fn(); } catch (e) { if (i === 2) throw e; }
+  }
+  throw new Error('unreachable');
+}
+```
+Just enough to pass
+</Good>
+
+<Bad>
+```typescript
+async function retryOperation<T>(
+  fn: () => Promise<T>,
+  options?: { maxRetries?: number; backoff?: 'linear' | 'exponential' }
+): Promise<T> { /* YAGNI */ }
+```
+Over-engineered
+</Bad>
+
+Don't add features, refactor other code, or "improve" beyond the test.
 
 ### Verify GREEN — Watch It Pass
 
@@ -97,7 +153,7 @@ Confirm:
 
 **Test fails?** Fix code, not test.
 
-**Other tests fail?** Fix now.
+**Other tests fail?** Fix now. "Other tests" means the project's full suite — not just your file. Any failure must be named in your report. A red test scrolled past without mention is a report falsified by omission.
 
 ### REFACTOR — Clean Up
 

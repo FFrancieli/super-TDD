@@ -178,6 +178,7 @@ You MUST complete each phase before proceeding to the next.
    > **Invoke `test-driven-development` now. Write a failing test that reproduces this bug. Follow the full RED-GREEN-REFACTOR cycle from this point forward.**
 
    - Write the simplest test that reproduces the exact symptom
+   - Automated test if possible; one-off test script if no framework is available
    - Run it — confirm it FAILS for the reason you identified
    - Only then write the fix
    - Run it — confirm it PASSES
@@ -194,6 +195,7 @@ You MUST complete each phase before proceeding to the next.
    - Test passes now?
    - No other tests broken?
    - Issue actually resolved?
+   - Use `verification-before-completion` before claiming success.
 
 4. **If Fix Doesn't Work**
    - STOP
