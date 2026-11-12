@@ -59,7 +59,7 @@ Each domain is independent - fixing tool approval doesn't affect abort tests.
 
 Each agent gets:
 - **Specific scope:** One test file or subsystem
-- **Clear goal:** Make these tests pass
+- **Clear goal:** Make these tests pass — following TDD: write a failing test for the fix first, then implement. See `tdd-enforcement`.
 - **Constraints:** Don't change other code
 - **Expected output:** Summary of what you found and fixed
 
@@ -102,10 +102,12 @@ These are timing/race condition issues. Your task:
 
 1. Read the test file and understand what each test verifies
 2. Identify root cause - timing issues or actual bugs?
-3. Fix by:
-   - Replacing arbitrary timeouts with event-based waiting
-   - Fixing bugs in abort implementation if found
-   - Adjusting test expectations if testing changed behavior
+3. Fix by following TDD: write a failing test that pins the root cause first,
+   then implement the fix. Do NOT modify production code before you have a
+   failing test for the specific behavior being fixed.
+   - Replace arbitrary timeouts with event-based waiting
+   - Fix bugs in abort implementation if found
+   - Adjust test expectations only if the existing behavior was intentionally changed
 
 Do NOT just increase timeouts - find the real issue.
 

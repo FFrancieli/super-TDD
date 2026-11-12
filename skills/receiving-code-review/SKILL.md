@@ -21,7 +21,8 @@ WHEN receiving code review feedback:
 3. VERIFY: Check against codebase reality
 4. EVALUATE: Technically sound for THIS codebase?
 5. RESPOND: Technical acknowledgment or reasoned pushback
-6. IMPLEMENT: One item at a time, test each
+6. IMPLEMENT: One item at a time — TDD cycle per change (write failing test first,
+   implement to pass, verify green). See `tdd-enforcement` for the iron law.
 ```
 
 ## Forbidden Responses
@@ -106,8 +107,8 @@ FOR multi-item feedback:
      - Blocking issues (breaks, security)
      - Simple fixes (typos, imports)
      - Complex fixes (refactoring, logic)
-  3. Test each fix individually
-  4. Verify no regressions
+  3. For each fix: TDD cycle — write failing test first, then implement
+  4. Verify no regressions (run full suite after each item)
 ```
 
 ## When To Push Back
