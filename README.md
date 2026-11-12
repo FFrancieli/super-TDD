@@ -21,6 +21,7 @@ Synced to superpowers 7.0.2.
 | `requesting-code-review` | Dispatch reviewer with spec-coverage analysis |
 | `receiving-code-review` | Respond to review with technical rigor |
 | `finishing-a-development-branch` | Verify → 3 options → ship |
+| `spike` | Exploratory work and one-off scripts — TDD and full workflow explicitly skipped |
 
 ## Deployment
 
@@ -57,6 +58,7 @@ skills/
   systematic-debugging/   SKILL.md + root-cause-tracing.md, defense-in-depth.md,
                           condition-based-waiting.md, test pressure scenarios
   tdd-enforcement/        SKILL.md, pressure-scenarios.md, rationalization-counters.md
+  spike/                  SKILL.md
   [10 more skills]/       SKILL.md (+ supporting files where applicable)
 hooks/
   session-start           Injects using-tdd-workflow at session start
