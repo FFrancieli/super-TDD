@@ -128,4 +128,4 @@ Every step must contain actual content:
 
 After saving the plan:
 
-**"Plan complete and saved to `specs/<filename>.md`. Ready to execute with `executing-plans` — parallel RED phase, then parallel GREEN phase for independent tasks, then sequential REFACTOR. Shall I proceed?"**
+**"Plan complete and saved to `specs/<filename>.md`. Ready to execute with `executing-plans` — fresh subagent per task, full TDD cycle enforced, two-stage review (spec compliance then code quality) after each task. Shall I proceed?"**
