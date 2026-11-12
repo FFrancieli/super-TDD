@@ -6,18 +6,24 @@ description: Use when starting any conversation — establishes how to find and 
 # Using TDD Workflow
 
 <SUBAGENT-STOP>
-If you were dispatched as a subagent to execute a specific task, skip this skill.
+If you were dispatched as a subagent to execute a specific task, ignore this skill.
 </SUBAGENT-STOP>
 
 <EXTREMELY-IMPORTANT>
 If you think there is even a 1% chance a skill might apply, you ABSOLUTELY MUST invoke the skill.
 
 IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
+
+This is not negotiable. You cannot rationalize your way out of this.
 </EXTREMELY-IMPORTANT>
 
 ## First Action — Every Session
 
 Before any other response, load `tdd-enforcement`. This is not optional.
+
+**Before entering plan mode:** if you haven't already brainstormed, invoke the `brainstorming` skill first.
+
+Then announce "Using [skill] to [purpose]" and follow the skill exactly. If it has a checklist, create a todo per item.
 
 ## Available Skills
 
@@ -53,12 +59,20 @@ These thoughts mean STOP — you're rationalizing skipping a skill:
 | "This is just a simple question" | Questions are tasks. Check for skills. |
 | "I need more context first" | Skill check comes BEFORE clarifying questions. |
 | "Let me explore the codebase first" | Skills tell you HOW to explore. Check first. |
+| "I can check git/files quickly" | Files lack conversation context. Check for skills. |
+| "Let me gather information first" | Skills tell you HOW to gather information. |
 | "This doesn't need a formal skill" | If a skill exists, use it. |
 | "I remember this skill" | Skills evolve. Read current version. |
 | "This doesn't count as a task" | Action = task. Check for skills. |
-| "I'll just do this one thing first" | Check BEFORE doing anything. |
 | "The skill is overkill" | Simple things become complex. Use it. |
+| "I'll just do this one thing first" | Check BEFORE doing anything. |
+| "This feels productive" | Undisciplined action wastes time. Skills prevent this. |
+| "I know what that means" | Knowing the concept ≠ using the skill. Invoke it. |
+
+## User Instructions
+
+User instructions (CLAUDE.md, AGENTS.md, direct requests) take precedence over skills, which in turn override default behavior. Only skip skill workflows when your human partner has explicitly told you to.
 
 ## The Rule
 
-**Invoke relevant or requested skills BEFORE any response or action.** Even 1% chance a skill might apply means invoke it. If an invoked skill turns out not to fit the situation, you don't need to follow it.
+**Invoke relevant or requested skills BEFORE any response or action** — including clarifying questions, exploring the codebase, or checking files. Even 1% chance a skill might apply means invoke it. If an invoked skill turns out not to fit the situation, you don't need to follow it.
