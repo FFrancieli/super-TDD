@@ -6,5 +6,8 @@
     "name": "Francieli Viane",
     "email": "francielifrv@gmail.com"
   },
+  "homepage": "https://github.com/francielifrv/tdd-superpowe",
+  "repository": "https://github.com/francielifrv/tdd-superpowe",
+  "license": "MIT",
   "keywords": ["tdd", "test-driven-development", "skills", "workflow", "debugging", "collaboration"]
 }
