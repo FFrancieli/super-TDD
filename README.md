@@ -59,7 +59,7 @@ skills/
                           condition-based-waiting.md, test pressure scenarios
   tdd-enforcement/        SKILL.md, pressure-scenarios.md, rationalization-counters.md
   spike/                  SKILL.md
-  [10 more skills]/       SKILL.md (+ supporting files where applicable)
+  [11 more skills]/       SKILL.md (+ supporting files where applicable)
 hooks/
   session-start           Injects using-tdd-workflow at session start
 specs/                    Design specs and implementation plans
