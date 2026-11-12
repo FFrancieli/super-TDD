@@ -274,7 +274,7 @@ document as that builder yourself.
 
 If the answer is no, revisit the design. Hard to test = hard to use. A design that couples components tightly or hides dependencies will produce code that is brittle and expensive to change.
 
-Do not approve a design section that cannot answer "yes" to testability.
+Do not approve a design section that cannot answer "yes" to testability. See `tdd-enforcement` for the iron law — a design that cannot be tested is a design that cannot follow TDD.
 
 <HARD-GATE>
 Nothing gets built until your human partner approves the design doc:

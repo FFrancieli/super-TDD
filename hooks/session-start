@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# SessionStart hook for tdd-superpowe workflow
+
+set -euo pipefail
+
+case "$0" in
+  */*|*\\*) SCRIPT_DIR="${0%[/\\]*}" ;;
+  *) SCRIPT_DIR="." ;;
+esac
+PLUGIN_ROOT="${SCRIPT_DIR}/.."
+
+skill_md="${PLUGIN_ROOT}/skills/using-tdd-workflow/SKILL.md"
+skill_content="Error reading using-tdd-workflow skill"
+if [ -r "$skill_md" ]; then
+  IFS= read -r -d '' skill_content < "$skill_md" || true
+  while [[ $skill_content == *$'\n' ]]; do
+    skill_content="${skill_content%$'\n'}"
+  done
+fi
+
+escape_for_json() {
+    local s="$1"
+    s="${s//\\/\\\\}"
+    s="${s//\"/\\\"}"
+    s="${s//$'\n'/\\n}"
+    s="${s//$'\r'/\\r}"
+    s="${s//$'\t'/\\t}"
+    skill_content_escaped="$s"
+}
+
+escape_for_json "$skill_content"
+session_context="<EXTREMELY_IMPORTANT>\nYou are using the TDD workflow.\n\n**Below is the full content of your 'using-tdd-workflow' skill - your introduction to using skills. For all other skills, use the 'Skill' tool:**\n\n${skill_content_escaped}\n</EXTREMELY_IMPORTANT>"
+
+emit_json() {
+  trap '' PIPE
+  printf "$@" 2>/dev/null || true
+}
+
+emit_json '{\n  "hookSpecificOutput": {\n    "hookEventName": "SessionStart",\n    "additionalContext": "%s"\n  }\n}\n' "$session_context"
+
+exit 0
