@@ -7,7 +7,7 @@ description: Use when executing implementation plans — fresh subagent per task
 
 Execute plan by dispatching a fresh implementer subagent per task (following the full TDD cycle), two-stage review (spec compliance then code quality) after each task, and a broad whole-branch review at the end.
 
-**Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. They should never inherit your session's context or history — you construct exactly what they need. This also preserves your own context for coordination work.
+**Why subagents:** You delegate tasks to specialized agents with isolated context. By precisely crafting their instructions and context, you ensure they stay focused and succeed at their task. Never give agents your session's context or history — construct exactly what they need. This also preserves your own context for coordination work.
 
 **Core principle:** Fresh subagent per task + TDD cycle enforced + two-stage review (spec compliance then code quality) + broad final review = high quality, disciplined iteration
 
@@ -208,7 +208,7 @@ and fix-round diffs need it.
   working tree you're executing in — it extracts the task's full text to a
   uniquely named file and prints the path. Compose the dispatch so the
   brief stays the single source of
-  requirements. Your dispatch should contain: (1) one line on where this
+  requirements. Your dispatch must contain: (1) one line on where this
   task fits in the project; (2) the brief path, introduced as "read this
   first — it is your requirements, with the exact values to use verbatim";
   (3) interfaces and decisions from earlier tasks that the brief cannot
