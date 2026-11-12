@@ -1,0 +1,20 @@
+{
+  "name": "tdd-superpowe-dev",
+  "description": "Development marketplace for TDD Superpowe plugin",
+  "owner": {
+    "name": "Francieli Viane",
+    "email": "francielifrv@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "tdd-superpowe",
+      "description": "TDD-first development workflow: a self-contained replacement for superpowers with enforced test-driven discipline throughout",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Francieli Viane",
+        "email": "francielifrv@gmail.com"
+      }
+    }
+  ]
+}
