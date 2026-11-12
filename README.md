@@ -11,11 +11,12 @@ A self-contained replacement for the superpowers plugin for use in environments 
 | `tdd-enforcement` | Iron law, rationalization counters, red flags — always ambient |
 | `test-driven-development` | RED-GREEN-REFACTOR mechanics |
 | `brainstorming` | Design before code, with testability gate |
-| `writing-plans` | Implementation plans with parallel-safe task declarations |
-| `tdd-parallel-execution` | TDD-phased parallel execution with automatic checkpoints |
+| `writing-plans` | Implementation plans with task dependency declarations |
+| `tdd-driven-development` | Sequential execution — fresh subagent per task, TDD cycle enforced, two-stage review |
+| `dispatching-parallel-agents` | Parallel investigation of multiple independent failures |
 | `finishing-a-development-branch` | Verify → 4 options → ship |
 | `using-git-worktrees` | Isolated workspace + pre-commit hook |
 | `systematic-debugging` | Root cause investigation → TDD fix |
 | `verification-before-completion` | Evidence before claims |
-| `requesting-code-review` | Dispatch code reviewer |
+| `requesting-code-review` | Dispatch code reviewer with spec-coverage analysis |
 | `receiving-code-review` | Respond to review with technical rigor |
