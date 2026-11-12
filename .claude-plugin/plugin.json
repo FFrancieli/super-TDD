@@ -1,0 +1,10 @@
+{
+  "name": "tdd-superpowe",
+  "description": "TDD-first development workflow: a self-contained replacement for superpowers with enforced test-driven discipline throughout",
+  "version": "1.0.0",
+  "author": {
+    "name": "Francieli Viane",
+    "email": "francielifrv@gmail.com"
+  },
+  "keywords": ["tdd", "test-driven-development", "skills", "workflow", "debugging", "collaboration"]
+}
