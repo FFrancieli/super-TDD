@@ -213,4 +213,4 @@ them to review the plan and choose an execution method before implementation.
 - **REQUIRED SUB-SKILL:** Use `executing-plans` — fresh subagent per task, full TDD cycle enforced, two-stage review (spec compliance then code quality) after each task
 
 **If Native chosen:**
-- **REQUIRED SUB-SKILL:** Use `executing-plans` — fresh subagent per task, full TDD cycle enforced, two-stage review (spec compliance then code quality) after each task
+- Implement each task yourself in this session, full TDD cycle enforced per task. When all tasks are complete, dispatch one fresh reviewer on the most capable model for a whole-branch review.
