@@ -13,9 +13,24 @@ Execute a plan by dispatching a fresh subagent per task, each following the full
 
 ## When to Use
 
-- You have a written plan from `writing-plans`
-- Tasks are mostly independent
-- You want TDD discipline enforced at every step
+```dot
+digraph when_to_use {
+    "Have implementation plan?" [shape=diamond];
+    "Tasks mostly independent?" [shape=diamond];
+    "tdd-driven-development" [shape=box];
+    "Manual execution or brainstorm first" [shape=box];
+
+    "Have implementation plan?" -> "Tasks mostly independent?" [label="yes"];
+    "Have implementation plan?" -> "Manual execution or brainstorm first" [label="no"];
+    "Tasks mostly independent?" -> "tdd-driven-development" [label="yes"];
+    "Tasks mostly independent?" -> "Manual execution or brainstorm first" [label="no - tightly coupled"];
+}
+```
+
+**vs. Manual execution:**
+- Fresh subagent per task (no context pollution)
+- TDD cycle enforced at every step
+- Two-stage review catches issues before they compound
 
 ## The Process
 
@@ -96,15 +111,53 @@ Task 2: User logout
 ...
 ```
 
+## Efficiency
+
+- No file reading overhead — controller provides full task text to subagent, subagent never reads plan file
+- Controller curates exactly what context is needed per task
+- Questions surfaced before work begins, not mid-implementation
+- Self-review catches issues before handoff to reviewer
+- Catching issues per task is cheaper than fixing them after all tasks complete
+
+**Cost:** more subagent invocations (implementer + 2 reviewers per task) and review loops add iterations — but catching issues early is cheaper than debugging later.
+
 ## Red Flags
 
 **Never:**
-- Skip spec compliance review before code quality review
-- Proceed with open issues from either reviewer
-- Let implementer self-review replace actual review
-- Accept "close enough" on spec compliance
-- Skip re-review after fixes
-- Move to next task while current has open issues
+- Skip reviews (spec compliance OR code quality)
+- Proceed with unfixed issues
+- Dispatch multiple implementation subagents in parallel (conflicts)
+- Make subagent read the plan file (provide full text instead)
+- Skip scene-setting context (subagent needs to understand where the task fits)
+- Ignore subagent questions (answer before letting them proceed)
+- Accept "close enough" on spec compliance (spec reviewer found issues = not done)
+- Skip review loops (reviewer found issues = implementer fixes = review again)
+- Let implementer self-review replace actual review (both are needed)
+- **Start code quality review before spec compliance is ✅** (wrong order)
+- Move to next task while either review has open issues
 
-**If subagent asks questions:** Answer before letting them proceed.
-**If reviewer finds issues:** Implementer fixes → reviewer re-reviews → only then proceed.
+**If subagent asks questions:**
+- Answer clearly and completely
+- Provide additional context if needed
+- Don't rush them into implementation
+
+**If reviewer finds issues:**
+- Implementer (same subagent) fixes them
+- Reviewer reviews again
+- Repeat until approved
+- Don't skip the re-review
+
+**If subagent fails task:**
+- Dispatch fix subagent with specific instructions
+- Don't try to fix manually (context pollution)
+
+## Integration
+
+**Required:**
+- `writing-plans` — creates the plan this skill executes
+- `requesting-code-review` — code review template for quality reviewer subagents
+- `finishing-a-development-branch` — completes development after all tasks
+
+**Subagents must use:**
+- `test-driven-development` — TDD cycle for each task
+- `tdd-enforcement` — always loaded, iron law applies
