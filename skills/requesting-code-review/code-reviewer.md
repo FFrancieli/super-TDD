@@ -85,6 +85,9 @@ Subagent (general-purpose):
     - Edge cases covered?
     - Integration tests where they matter?
     - All tests passing?
+    - **TDD compliance:** Were tests written before implementation? Check commit
+      order — a test file committed in the same commit as or after the implementation
+      file it covers is a TDD violation. Flag as Important.
 
     **Production readiness:**
     - Migration strategy if schema changed?
