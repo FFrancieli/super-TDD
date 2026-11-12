@@ -15,7 +15,7 @@ Assume they are a skilled developer, but know almost nothing about the toolset o
 
 **Save plans to:** `specs/YYYY-MM-DD-<feature-name>.md`
 
-**Execute plans with:** `tdd-driven-development`
+**Execute plans with:** `executing-plans`
 
 ## Bite-Sized Task Granularity
 
@@ -33,7 +33,7 @@ Assume they are a skilled developer, but know almost nothing about the toolset o
 ```markdown
 # [Feature Name] Implementation Plan
 
-> **For agentic workers:** REQUIRED: Use `tdd-driven-development` to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED: Use `executing-plans` to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** [One sentence describing what this builds]
 
@@ -128,4 +128,4 @@ Every step must contain actual content:
 
 After saving the plan:
 
-**"Plan complete and saved to `specs/<filename>.md`. Ready to execute with `tdd-driven-development` — parallel RED phase, then parallel GREEN phase for independent tasks, then sequential REFACTOR. Shall I proceed?"**
+**"Plan complete and saved to `specs/<filename>.md`. Ready to execute with `executing-plans` — parallel RED phase, then parallel GREEN phase for independent tasks, then sequential REFACTOR. Shall I proceed?"**

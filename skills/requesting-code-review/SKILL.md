@@ -76,7 +76,7 @@ You: [Fix progress indicators]
 
 ## Integration with Workflows
 
-**tdd-driven-development:**
+**executing-plans:**
 - Review after EACH task
 - Catch issues before they compound
 - Fix before moving to next task
