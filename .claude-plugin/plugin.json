@@ -3,8 +3,7 @@
   "description": "TDD-first development workflow: a self-contained replacement for superpowers with enforced test-driven discipline throughout",
   "version": "1.0.0",
   "author": {
-    "name": "Francieli Viane",
-    "email": "francielifrv@gmail.com"
+    "name": "Francieli Viane"
   },
   "homepage": "https://github.com/francielifrv/tdd-superpowe",
   "repository": "https://github.com/francielifrv/tdd-superpowe",
