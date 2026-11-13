@@ -2,8 +2,7 @@
   "name": "tdd-superpowe-dev",
   "description": "Development marketplace for TDD Superpowe plugin",
   "owner": {
-    "name": "Francieli Viane",
-    "email": "francielifrv@gmail.com"
+    "name": "Francieli Viane"
   },
   "plugins": [
     {
@@ -12,8 +11,7 @@
       "version": "1.0.0",
       "source": "./",
       "author": {
-        "name": "Francieli Viane",
-        "email": "francielifrv@gmail.com"
+        "name": "Francieli Viane"
       }
     }
   ]
